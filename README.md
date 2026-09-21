@@ -56,6 +56,3 @@ The admin dashboard provides functionality to manage products, users, and orders
 
 This project was developed as a portfolio project to demonstrate full-stack development skills, including frontend design, backend development, authentication, API integration, database management, and dashboard development.
 
-👨‍💻 Author
-
-Your Name
