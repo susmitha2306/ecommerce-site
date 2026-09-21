@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NovaCart — Modern Online Store</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="toast"></div>
+<div class="topline">Free delivery on orders above ₹999 <span>•</span> Easy returns <span>•</span> Secure payments</div>
+<header class="header">
+  <a class="brand" href="index.html"><span class="brand-mark">N</span><span>Nova<span>Cart</span></span></a>
+  <div class="searchbar"><select id="searchCategory"><option value="">All</option></select><input id="searchInput" placeholder="Search for products, brands and more"><button id="searchBtn">⌕</button></div>
+  <div class="header-actions">
+    <a href="auth.html" id="accountLink">Hello, Sign in<br><b>Account & Lists</b></a>
+    <a href="#orders">Returns<br><b>& Orders</b></a>
+    <button class="cart-btn" id="cartBtn">🛒 <b id="cartCount">0</b></button>
+  </div>
+</header>
+<nav class="nav"><button id="catToggle">☰ Categories</button><div id="categoryNav"></div><a href="#deals">Today's Deals</a><a href="#new">New Arrivals</a><a href="#orders">My Orders</a></nav>
+
+<main>
+<section class="hero">
+  <div class="hero-copy"><span class="eyebrow">CURATED FOR EVERYDAY LIFE</span><h1>Good products.<br><em>Better choices.</em></h1><p>Discover useful essentials, fresh styles and smart tech — all in one clean shopping experience.</p><div><button class="primary" onclick="scrollToProducts()">Shop now</button><button class="ghost" onclick="setCategory('electronics')">Explore tech →</button></div></div>
+  <div class="hero-art"><div class="orb"></div><img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1000&q=85" alt="Headphones"><div class="hero-card"><b>Editor's pick</b><span>Audio & smart tech</span><strong>Up to 40% off</strong></div></div>
+</section>
+
+<section class="category-strip"><div class="section-head"><div><small>SHOP BY</small><h2>Popular categories</h2></div></div><div id="categoryCards" class="category-cards"></div></section>
+
+<section id="deals" class="promo-row"><div><span>LIMITED TIME</span><h2>Winter sale</h2><p>Save up to 45% on selected essentials.</p><button class="light-btn" onclick="applySort('discount')">View deals</button></div><div class="promo-image"><img src="https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=900&q=80"></div></section>
+
+<section id="new" class="products-section">
+ <div class="section-head"><div><small>JUST FOR YOU</small><h2>Featured products</h2></div><div class="controls"><select id="sort"><option value="featured">Featured</option><option value="newest">Newest</option><option value="discount">Biggest discount</option><option value="rating">Top rated</option><option value="priceAsc">Price: low to high</option><option value="priceDesc">Price: high to low</option></select></div></div>
+ <div class="shop-layout"><aside class="filters"><h3>Filter</h3><label>Category</label><div id="sideCats"></div><label>Price</label><div class="price-inputs"><input id="minPrice" type="number" placeholder="Min"><input id="maxPrice" type="number" placeholder="Max"></div><button class="apply" id="applyFilters">Apply filters</button><button class="clear" id="clearFilters">Clear</button></aside><div class="catalog"><div class="resultbar"><span id="resultCount"></span><button id="filterMobile">☷ Filters</button></div><div id="products" class="product-grid"></div><div id="pager" class="pager"></div></div></div>
+</section>
+
+<section id="orders" class="orders-section"><div class="section-head"><div><small>YOUR SHOPPING</small><h2>Recent orders</h2></div></div><div id="ordersList" class="orders-list"><div class="empty">Sign in to view your orders.</div></div></section>
+</main>
+
+<div id="cartDrawer" class="drawer"><div class="drawer-head"><h2>Your cart</h2><button onclick="closeCart()">×</button></div><div id="cartItems"></div><div class="cart-foot"><div><span>Subtotal</span><strong id="cartTotal">₹0</strong></div><button class="primary full" id="checkoutBtn">Proceed to checkout</button></div></div><div id="drawerShade" class="shade" onclick="closeCart()"></div>
+
+<div id="checkoutModal" class="modal"><div class="modal-card"><button class="modal-close" onclick="closeCheckout()">×</button><h2>Checkout</h2><p class="muted">Enter your delivery details. Your order will be stored through the REST API.</p><form id="checkoutForm"><div class="two"><input name="name" placeholder="Full name" required><input name="phone" placeholder="Phone number" required></div><textarea name="address" placeholder="Delivery address" required></textarea><div class="two"><input name="city" placeholder="City" required><input name="pincode" placeholder="Pincode" required></div><div class="payment-note">🔒 Demo payment — no real charge is made.</div><button class="primary full">Place order</button></form></div></div>
+
+<script src="app.js"></script>
+</body></html>
